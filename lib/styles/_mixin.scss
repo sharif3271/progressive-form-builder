@@ -1,0 +1,21 @@
+//
+//
+//
+//
+
+@mixin flex($display: flex, $gap: 0, $dir: row, $align: flex-start, $justify: flex-start) {
+  display: $display;
+  flex-direction: $dir;
+  align-items: $align;
+  justify-content: $justify;
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+@mixin border($size: 1px, $color: var(--color-gray5), $radius: 8px) {
+  border: $size solid $color;
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}

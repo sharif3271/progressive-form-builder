@@ -1,0 +1,87 @@
+@import 'app';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  font-weight: 400;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  //// background colors
+  --color-secondary: #5663F8;
+  --color-white: #fff;
+  --color-bg1: #fff;
+  --color-bg1-light: var(--color-gray6);
+  --color-bg2: #fff;
+  --color-bg-yellow: #FCFFDA;
+  --color-modal-backdrop: #fff0;
+  //////////colors///////////
+  --color-gray1: #1e1e1f;
+  --color-gray6: #f5f8fc;
+  --color-gray5: hsl(219, 26%, 89%);
+  --color-gray4: #c0c6d0;
+  --color-gray3: #8b9199;
+  --color-gray2: #414244;
+  --color-primary-dark: #d63335;
+  --color-primary-light2: #ffe9e9;
+  --color-primary-light3: #ffe9e97c;
+  --color-primary-light1: #ff999a;
+  --color-primary: #f54e50;
+  --color-third: #5663f8;
+  --color-warning: #f2c94c;
+  --color-success: #5dd891;
+  --color-success-dark: #083d1e;
+  --color-error: #ff6666;
+  //
+  --color-accent1: #ffd400;
+  --color-accent2: #f36dff;
+  --color-accent3: #65e591;
+  --color-accent4: #ff9a24;
+  --color-accent5: #4f4add;
+  --color-accent6: #24bdff;
+  //
+  --max-width-page: 1134px;
+
+  color: var(--color-gray1);
+  background-color: var(--color-bg1);
+}
+
+html[dark="true"] {
+  :root {
+    --color-gray1: #f5f8fc;
+    --color-gray6: #1e1e1f;
+    --color-gray5: #414244;
+    --color-gray3: #c0c6d0;
+    --color-gray4: #8b9199;
+    --color-gray2: #dde2eb;
+    --color-primary-dark: #d63335;
+    --color-primary-light3: #d6333520;
+    --color-primary-light2: #d6333540;
+    --color-primary-light1: #d6333570;
+    --color-primary: #f54e50;
+    --color-third: #5663f8;
+    --color-warning: #f2c94c;
+    --color-success: #5dd891;
+    --color-error: #ff6666;
+    --color-accent1: #ffd400;
+    --color-accent2: #f36dff;
+    --color-accent3: #65e591;
+    --color-accent4: #ff9a24;
+    --color-accent5: #4f4add;
+    --color-accent6: #24bdff;
+    --color-bg1: #181818;
+    --color-bg2: #1818187c;
+    --color-bg-yellow: #FCFFDA29;
+    --color-modal-backdrop: #fff1;
+    color-scheme: dark;
+  }
+}

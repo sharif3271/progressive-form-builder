@@ -2,7 +2,5 @@
 
 .pfb-main-container {
   width: 100%;
-  @include flex(flex, 16px);
-  @include border();
-  min-height: 28px;
+  @include flex(flex, 16px, column);
 }

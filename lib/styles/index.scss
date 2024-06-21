@@ -1,4 +1,5 @@
 @import 'app';
+@import 'components';
 
 *,
 *::before,
@@ -84,4 +85,46 @@ html[dark="true"] {
     --color-modal-backdrop: #fff1;
     color-scheme: dark;
   }
+}
+
+input[type="text"], textarea {
+  padding: 4px 8px 4px 2px;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid var(--color-gray5);
+  &:active {
+    border-color: var(--color-gray4);
+  }
+  &::placeholder {
+    font-style: italic;
+  }
+  &.h1 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  &.h2 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  &.h3 {
+    font-size: 26px;
+    line-height: 26px;
+  }
+  &.h4 {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  &.h5 {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  &.h6 {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+textarea {
+  field-sizing: content;
+  min-height: 1lh;
+  resize: none;
 }

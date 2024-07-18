@@ -93,6 +93,7 @@ input[type="text"], textarea {
   outline: none;
   border: 0;
   border-bottom: 1px solid var(--color-gray5);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   &:active {
     border-color: var(--color-gray4);
   }
@@ -128,4 +129,23 @@ textarea {
   field-sizing: content;
   min-height: 1lh;
   resize: none;
+}
+
+
+input.app-input, textarea.app-textbox {
+  padding: 4px 8px 4px 4px;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid var(--color-gray5);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 28px;
+  background-color: var(--color-bg1-light);
+  width: 100%;
+  max-width: 440px;
+  &:active {
+    border-color: var(--color-gray4);
+  }
+  &::placeholder {
+    font-style: italic;
+  }
 }

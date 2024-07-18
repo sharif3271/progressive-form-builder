@@ -11,6 +11,7 @@ export enum FormItemType {
 
 export interface IFormItemBase {
   title?: string;
+  description?: string;
   type: FormItemType;
   isRequired: boolean;
   id: string;
@@ -26,15 +27,18 @@ export interface IFormTextbox extends IFormItemBase {
 }
 export interface IFormMultiselect extends IFormItemBase {
   type: FormItemType.MULTISELECT;
-  value: boolean[];
+  value: string[];
+  options?: string[];
 }
 export interface IFormDropsown extends IFormItemBase {
   type: FormItemType.DROPDOWN;
-  value: boolean[];
+  value: string[];
+  options?: string[];
 }
 export interface IFormSingleSelect extends IFormItemBase {
   type: FormItemType.SINGLESELECT;
   value: string;
+  options?: string[];
 }
 export interface IFormDate extends IFormItemBase {
   type: FormItemType.DATE;

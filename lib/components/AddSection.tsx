@@ -28,7 +28,13 @@ export const AddSection = () => {
       onClick={e => e.stopPropagation()}
       onMouseLeave={() => {
         timeoutRef.current = setTimeout(() => setShowItems(false), 1000)
-      }}>
+      }}
+      onMouseOver={() => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current)
+        }
+      }}
+    >
 
       <div
         className="button"
@@ -40,7 +46,7 @@ export const AddSection = () => {
 
       {showItems && (
         <div className="actions">
-          <div onClick={() => onAddItem(FormItemType.INPUT)} title="Add a Input">
+          <div onClick={() => onAddItem(FormItemType.INPUT)} title="Add an Input">
             Input
           </div>
           <div onClick={() => onAddItem(FormItemType.TEXTBOX)} title="Add a Textbox">

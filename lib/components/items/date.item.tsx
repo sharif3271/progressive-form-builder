@@ -1,10 +1,18 @@
 import { FC } from "react"
-import { IFormInput } from "../../types/form.type"
+import { IFormDate } from "../../types/form.type"
 import { ItemProps } from "./prop.type"
+import { withEditingWrapper } from "../../hoc"
+import { mdiCalendar } from "@mdi/js"
+import { MdiIcon } from "../MdiIcon"
 
 
-export const DateItem: FC<ItemProps<IFormInput>> = () => {
+export const DateItemContent: FC<ItemProps<IFormDate>> = () => {
   return (
-    <div className="item-container"></div>
+    <div className="pfb-dropdown-shape">
+      <p>mm/dd/yyyy</p>
+      <MdiIcon path={mdiCalendar} />
+    </div>
   )
 }
+
+export const DateItem = withEditingWrapper(DateItemContent)

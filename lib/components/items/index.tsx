@@ -1,4 +1,4 @@
-export * from './custom.item'
+export * from './file.item'
 export * from './date.item'
 export * from './dropdown.item'
 export * from './input.item'

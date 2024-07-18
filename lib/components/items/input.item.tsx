@@ -1,9 +1,14 @@
 import { FC } from "react"
 import { ItemProps } from "./prop.type"
 import { IFormInput } from "../../types/form.type"
+import { withEditingWrapper } from "../../hoc"
 
-export const InputItem: FC<ItemProps<IFormInput>> = () => {
+export const InputItemContent: FC<ItemProps<IFormInput>> = () => {
   return (
-    <div className="item-container"></div>
+    <>
+      <input className="app-input" disabled={true} />
+    </>
   )
 }
+
+export const InputItem = withEditingWrapper(InputItemContent)

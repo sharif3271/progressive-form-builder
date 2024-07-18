@@ -1,6 +1,6 @@
 import { FormItem } from '../../types/form.type'
 
-export interface ItemProps<T extends FormItem> {
+export interface ItemProps<T = FormItem> {
   item: T;
   onUpdate: (payload: {
     id: string;

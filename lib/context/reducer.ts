@@ -13,7 +13,7 @@ export type PayloadType<T extends ActionTypes> =
   T extends ActionTypes.UPDATE_DESCRIPTION ? FormObjectModelStore['description'] :
   T extends ActionTypes.UPDATE_ITEM ? { id: string, data: Extract<FormObjectModelStore['itemsObject'][string], { id: string }> } :
   T extends ActionTypes.DELETE_ITEM ? { id: string } :
-  T extends ActionTypes.ADD_ITEM ? void :
+  T extends ActionTypes.ADD_ITEM ? FormItemType :
   never;
 
 type StoreActionBase<T extends ActionTypes> = {
@@ -43,7 +43,7 @@ export function reducer(state: FormObjectModelStore, action: StoreAction): FormO
           ...state.itemsObject, [id]: {
             id,
             isRequired: false,
-            type: FormItemType.INPUT,
+            type: action.payload,
             title: ''
           } as IFormInput
         }

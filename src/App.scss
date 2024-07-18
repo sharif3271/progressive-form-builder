@@ -2,11 +2,15 @@ html,
 body,
 #root {
   min-height: 100vh;
+  margin: 0;
 }
 #root {
   display: flex;
   padding: 24px;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+    padding: 16px;
+  }
 }
 
 .app-container {

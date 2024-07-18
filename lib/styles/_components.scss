@@ -7,12 +7,16 @@
   padding: 32px 16px;
   border-top: 8px solid var(--color-accent3);
 
+  
   >input {
     width: 100%;
   }
-
+  
   >textarea {
     width: 100%;
+  }
+  @media screen and (max-width: 500px) {
+    padding: 16px 0px;
   }
 }
 
@@ -25,14 +29,11 @@
 
 .pfb-add-section {
   width: 100%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 16px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .button {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,5 +43,27 @@
     cursor: pointer;
     @include border(1px, var(--color-gray5), 50%);
     box-shadow: inset 0 0 5px 1px rgba($color: #000000, $alpha: 0.19);
+  }
+  .actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    animation: fadeInFromTop 0.3s ease-in-out;
+    padding-top: 12px;
+    > * {
+      white-space: nowrap;
+      cursor: pointer;
+      text-decoration: underline;
+      color: var(--color-accent5);
+    }
+  }
+  @media screen and (max-width: 500px) {
+    margin-top: 0;
+    .actions {
+      gap: 8px;
+      flex-wrap: wrap;
+    }
   }
 }

@@ -7,12 +7,14 @@ export enum ActionTypes {
   UPDATE_ITEM,
   ADD_ITEM,
   DELETE_ITEM,
+  INIT_STORE,
 }
 export type PayloadType<T extends ActionTypes> =
   T extends ActionTypes.UPDATE_TITLE ? FormObjectModelStore['title'] :
   T extends ActionTypes.UPDATE_DESCRIPTION ? FormObjectModelStore['description'] :
   T extends ActionTypes.UPDATE_ITEM ? { id: string, data: Extract<FormObjectModelStore['itemsObject'][string], { id: string }> } :
   T extends ActionTypes.DELETE_ITEM ? { id: string } :
+  T extends ActionTypes.INIT_STORE ? FormObjectModelStore :
   T extends ActionTypes.ADD_ITEM ? FormItemType :
   never;
 
@@ -26,6 +28,7 @@ export type StoreAction =
   StoreActionBase<ActionTypes.UPDATE_DESCRIPTION> |
   StoreActionBase<ActionTypes.UPDATE_ITEM> |
   StoreActionBase<ActionTypes.DELETE_ITEM> |
+  StoreActionBase<ActionTypes.INIT_STORE> |
   StoreActionBase<ActionTypes.ADD_ITEM>;
 
 
@@ -34,6 +37,8 @@ export function reducer(state: FormObjectModelStore, action: StoreAction): FormO
   switch (action.type) {
     case ActionTypes.UPDATE_TITLE:
       return { ...state, title: action.payload }
+    case ActionTypes.INIT_STORE:
+      return { ...action.payload }
     case ActionTypes.UPDATE_DESCRIPTION:
       return { ...state, description: action.payload }
     case ActionTypes.ADD_ITEM:

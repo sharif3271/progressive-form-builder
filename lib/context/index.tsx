@@ -65,3 +65,4 @@ export const useUpdateDescription = contextUpdateCreator(ActionTypes.UPDATE_DESC
 export const useUpdateItem = contextUpdateCreator(ActionTypes.UPDATE_ITEM)
 export const useAddItem = contextUpdateCreator(ActionTypes.ADD_ITEM)
 export const useDeleteItem = contextUpdateCreator(ActionTypes.DELETE_ITEM)
+export const useInitStore = contextUpdateCreator(ActionTypes.INIT_STORE)

@@ -1,3 +1,3 @@
 # Progressive Form Builder
 
-[Demo](https://fb.asanflow.com)
+[Demo](https://p-form-builder.pages.dev/)

@@ -9,7 +9,8 @@
   border-top: 8px solid var(--color-accent3);
 
 
-  >input, >textarea >.text  {
+  >input,
+  >textarea>.text {
     width: 100%;
   }
 
@@ -118,6 +119,17 @@
   width: 100%;
   max-width: 440px;
 
+  &.action {
+    user-select: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--color-gray6);
+    }
+  }
+
   input {
     flex: 1;
   }
@@ -128,6 +140,9 @@
     box-shadow: 0 0 3px 1px rgba($color: #000000, $alpha: 0.09);
     width: 20px;
     height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   div.circle {
@@ -136,6 +151,18 @@
     box-shadow: inset 0 0 5px 1px rgba($color: #000000, $alpha: 0.09);
     width: 20px;
     height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .checkmark {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .item-text {
+    flex: 1;
   }
 
   >svg {
@@ -145,6 +172,14 @@
 
     >path {
       fill: var(--color-gray3)
+    }
+  }
+
+  svg.checkmark {
+    box-shadow: inset 0 0 5px 1px rgba($color: #000000, $alpha: 0.05);
+
+    >path {
+      fill: var(--color-primary) !important
     }
   }
 }
@@ -188,6 +223,72 @@
   >svg {
     >path {
       fill: var(--color-gray3);
+    }
+  }
+
+  &.active {
+    border-color: var(--color-gray3);
+    user-select: none;
+    cursor: pointer;
+
+    >svg {
+      >path {
+        fill: var(--color-gray2);
+      }
+    }
+  }
+}
+
+input[type="date"] {
+  background-color: var(--color-bg1);
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-gray5);
+  outline: 10px red;
+  border-radius: 8px;
+  width: 100%;
+  height: 42px;
+  max-width: 440px;
+  background: var(--color-bg1) url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" fill="%238b9199"></path></svg>') 99% 50% no-repeat;
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+}
+
+.pfb-upload-preview-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.pfb-file-preview {
+  width: 84px;
+  height: 84px;
+  position: relative;
+  border: 1px solid var(--color-gray5);
+  border-radius: 8px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ac-close {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    cursor: pointer;
+    svg {
+      width: 22px;
+      height: 22px;
+      path {
+        fill: var(--color-gray3);
+      }
     }
   }
 }

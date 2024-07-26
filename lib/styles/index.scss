@@ -147,6 +147,9 @@ input.app-input, textarea.app-textbox {
   &:active {
     border-color: var(--color-gray4);
   }
+  &:focus {
+    border-color: var(--color-gray4);
+  }
   &::placeholder {
     font-style: italic;
   }

@@ -4,11 +4,14 @@ import { ItemProps } from "./prop.type"
 import { withEditingWrapper } from "../../hoc"
 import { mdiClose } from "@mdi/js"
 import { MdiIcon } from "../MdiIcon"
+import { useContextSelector } from "../../context"
+import { Radio } from "../elements"
 
 
 export const SingleSelectItemContent: FC<ItemProps<IFormSingleSelect>> = ({ item, onUpdate }) => {
 
   const options = useMemo(() => item.options ?? [], [item.options])
+  const isView = useContextSelector(s => s.isView)
 
   const onChangeOption = useCallback((v: string, index: number) => {
     const optionList = [...options]
@@ -43,13 +46,23 @@ export const SingleSelectItemContent: FC<ItemProps<IFormSingleSelect>> = ({ item
     })
   }, [options, item])
 
-  return (
+  // Filling the Form
+  const onClickOption = useCallback((option: string) => {
+    onUpdate({
+      id: item.id,
+      data: {
+        ...item,
+        value: option
+      }
+    })
+  }, [item.value, onUpdate])
+
+  if (!isView) return (
     <div className="pfb-options-container">
       {options.map((option, i) => (
-        <div className="pfb-option-row">
+        <div className="pfb-option-row" key={i}>
           <div className="circle" />
           <input
-            key={i}
             type="text"
             className="title h6"
             placeholder="Option"
@@ -64,6 +77,19 @@ export const SingleSelectItemContent: FC<ItemProps<IFormSingleSelect>> = ({ item
         Add Option
       </div>
 
+    </div>
+  )
+
+  return (
+    <div className="pfb-options-container" style={{ gap: 0 }}>
+      {options.map((option, i) => (
+        <Radio
+          key={i}
+          label={option}
+          isActive={item.value === option}
+          onClick={() => onClickOption(option)}
+        />
+      ))}
     </div>
   )
 }

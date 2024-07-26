@@ -1,13 +1,17 @@
 import { FC, useCallback, useMemo } from "react"
-import { IFormDropsown } from "../../types/form.type"
+import { IFormDropdown } from "../../types/form.type"
 import { ItemProps } from "./prop.type"
 import { withEditingWrapper } from "../../hoc"
 import { mdiChevronDown, mdiClose } from "@mdi/js"
 import { MdiIcon } from "../MdiIcon"
+import { useContextSelector } from "../../context"
+import { Select } from "../elements"
 
 
-export const DropdownItemContent: FC<ItemProps<IFormDropsown>> = ({ item, onUpdate }) => {
+export const DropdownItemContent: FC<ItemProps<IFormDropdown>> = ({ item, onUpdate }) => {
+
   const options = useMemo(() => item.options ?? [], [item.options])
+  const isView = useContextSelector(s => s.isView)
 
   const onChangeOption = useCallback((v: string, index: number) => {
     const optionList = [...options]
@@ -42,7 +46,7 @@ export const DropdownItemContent: FC<ItemProps<IFormDropsown>> = ({ item, onUpda
     })
   }, [options, item])
 
-  return (
+  if (!isView) return (
     <>
       <div className="pfb-dropdown-shape">
         <p>Select an Option</p>
@@ -50,10 +54,9 @@ export const DropdownItemContent: FC<ItemProps<IFormDropsown>> = ({ item, onUpda
       </div>
       <div className="pfb-options-container">
         {options.map((option, i) => (
-          <div className="pfb-option-row">
+          <div className="pfb-option-row" key={i}>
             <div />
             <input
-              key={i}
               type="text"
               className="title h6"
               placeholder="Option"
@@ -69,6 +72,24 @@ export const DropdownItemContent: FC<ItemProps<IFormDropsown>> = ({ item, onUpda
         </div>
 
       </div>
+    </>
+  )
+
+  return (
+    <>
+      <Select
+        options={item.options ?? []}
+        value={item.value ?? ''}
+        onChange={(v) => {
+          onUpdate({
+            id: item.id,
+            data: {
+              ...item,
+              value: v
+            }
+          })
+        }}
+      />
     </>
   )
 }

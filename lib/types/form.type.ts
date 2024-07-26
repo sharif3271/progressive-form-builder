@@ -30,9 +30,9 @@ export interface IFormMultiselect extends IFormItemBase {
   value: string[];
   options?: string[];
 }
-export interface IFormDropsown extends IFormItemBase {
+export interface IFormDropdown extends IFormItemBase {
   type: FormItemType.DROPDOWN;
-  value: string[];
+  value: string;
   options?: string[];
 }
 export interface IFormSingleSelect extends IFormItemBase {
@@ -46,7 +46,7 @@ export interface IFormDate extends IFormItemBase {
 }
 export interface IFormFile extends IFormItemBase {
   type: FormItemType.FILE;
-  value: string;
+  value: string | File | undefined;
   extension: string;
 }
 export interface IFormCustom extends IFormItemBase {
@@ -58,7 +58,7 @@ export type FormItem =
   | IFormTextbox 
   | IFormMultiselect 
   | IFormSingleSelect 
-  | IFormDropsown
+  | IFormDropdown
   | IFormDate
   | IFormFile
   | IFormCustom

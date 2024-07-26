@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useMemo } from "react";
 import { FormObjectModelStore } from "./types/form.type";
 import { useContextSelector, useInitStore, useUpdateIsView } from "./context";
 
@@ -27,9 +27,11 @@ export const UpdateExternal: FC<UpdateExternalProps> = ({ initialValue, onChange
     updateIsView(Boolean(isView))
   }, [isView])
 
+  const simpleChangeDetector = useMemo(() => JSON.stringify(store), [store])
+
   useEffect(() => {
-    onChangeValue?.(store)
-  }, [store])
+    onChangeValue?.(JSON.parse(simpleChangeDetector))
+  }, [simpleChangeDetector])
 
 
   return null;

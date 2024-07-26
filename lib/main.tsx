@@ -25,7 +25,7 @@ export const ProFormBuilder: FC<ProFormBuilderProps> = ({
       <div className={`pfb-main-container ${className ?? ""}`} {...props}>
         <Header />
         <QuestionSet />
-        <AddSection />
+        {!isView && <AddSection />}
       </div>
     </FormContextProvider>
   );

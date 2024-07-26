@@ -72,5 +72,6 @@ export type FormObjectModel = {
 export type FormObjectModelStore = {
   title?: string;
   description?: string;
-  itemsObject: Record<string, FormItem>
+  itemsObject: Record<string, FormItem>;
+  isView: boolean;
 }

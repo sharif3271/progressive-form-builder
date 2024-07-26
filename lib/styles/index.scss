@@ -88,11 +88,13 @@ html[dark="true"] {
   }
 }
 
-input[type="text"], textarea {
+input[type="text"], textarea, .text {
   padding: 4px 8px 4px 2px;
   outline: none;
   border: 0;
-  border-bottom: 1px solid var(--color-gray5);
+  &:not(.text) {
+    border-bottom: 1px solid var(--color-gray5);
+  }
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   &:active {
     border-color: var(--color-gray4);
